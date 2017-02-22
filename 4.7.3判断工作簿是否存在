@@ -1,0 +1,12 @@
+Sub testfile()
+'判断工作簿所在的文件夹是否存在‘员工花名册.xlsx’
+Dim fil As String            '定义变量
+fil = ThisWorkbook.Path & "\员工花名册.xlsx"
+If Len(Dir(fil)) > 0 Then
+'用dir判断fil指代的文件是否存在
+'如果fil指代的文件存在，dir函数返回文件名，否则返回空字符串("")
+    MsgBox "工作簿已存在！"
+Else
+    MsgBox "工作簿不存在！"
+End If
+End Sub
