@@ -1,0 +1,12 @@
+Sub isopen()
+'判断‘成绩表’工作簿文件是否打开
+Dim i As Integer
+For i = 1 To Workbooks.Count
+    If Workbooks(i).Name = "员工花名册.xlsx" Then
+        MsgBox "文件已打开！"
+        Exit Sub
+      
+    End If
+Next
+ MsgBox "文件没有打开！"
+End Sub
