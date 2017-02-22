@@ -1,0 +1,14 @@
+Sub WbInput()
+'在本工作簿所在的文件夹下“员工花名册”里添加一条记录
+Dim wb As String, xrow As Integer, arr
+wb = ThisWorkbook.Path & "\员工花名册.xlsx"     '制定要打开的文件夹
+Workbooks.Open (wb)             '打开工作簿
+'只有打开了工作簿才能进行编辑，所以先用代码打开它
+With ActiveWorkbook.Worksheets(1)           '向工作簿里的第一张工作表里添加纪录
+    xrow = .Range("A1").CurrentRegion.Rows.Count + 1 '取得表格中第一条空行号
+    '将需要增加的职工信息保存在数组arr里
+    arr = Array(xrow = 1, "张娇", "女", #7/8/1987#, #9/1/2010#, "10年新招")
+    .Cells(xrow, 1).Resize(1, 6) = arr      '将数组写入单元格区域
+End With
+ActiveWorkbook.Close savechanges:=True
+End Sub
