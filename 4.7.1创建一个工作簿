@@ -1,0 +1,13 @@
+Option Explicit
+Sub wbadd()
+'创建“员工花名册”工作簿，保存在本工作簿所在的文件中
+Dim wb As Workbook, sht As Worksheet    '定义一个workbook对象和一个worksheet对象
+Set wb = Workbooks.Add                  '胜多负少
+Set sht = wb.Worksheets(1)
+With sht
+    .Name = "花名册"
+    .Range("A1:B1") = Array("序号", "姓名") '设置表头
+End With
+wb.SaveAs ThisWorkbook.Path & "\员工花名册.xlsx" '保存新的工作表到本地工作簿所在的文件中
+ActiveWorkbook.Close                     '关闭新的工作簿
+End Sub
