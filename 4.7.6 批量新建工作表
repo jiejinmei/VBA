@@ -1,0 +1,11 @@
+Sub ShtAdd()
+'根据C列的班级名称新建不同的工作表
+    Dim i As Integer, sht As Worksheet
+    i = 2                                  '第一条记录的行号为2
+    Set sht = Worksheets("成绩表")
+    Do While sht.Cells(i, "C") <> ""        '定义循环条件
+        Worksheets.Add after:=Worksheets(Worksheets.Count)      '在所有工作表后插入新工作表
+        ActiveSheet.Name = sht.Cells(i, "C").Value      '更改工作表的标签名称
+        i = i + 1
+    Loop
+End Sub
